@@ -19,7 +19,7 @@ Disclaimer: This is originally a simple script I developed for my personal use, 
 - No NAT by default.
 - Customisable `[Interface]` and `[Peer]` entries, as well as endpoints, keepalive, mtu and pre/post up/down rules per site.
 - Predictable interface naming.
-- Automatically generates next available listening port for each interface starting from the port defined in `peers.json`
+- Automatically generates next available listening port for each interface starting from the port defined in `config.json`
 - Automatically generates public/private key pairs for each site and unique preshared keypairs for each site-peer pair.
 - Seperate file for private & public key pair for each site, and preshared-key pairs, allowing for key-rotation.
 - Table is set to off in template, routes for the interfaces is defined and created through UpDown rules
@@ -72,6 +72,7 @@ Users can specify the following information for each site:
 - peer_custom
 - local
 - local_v6
+
 You may refer to config.json.example
 
 ### `data.json`
