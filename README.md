@@ -63,7 +63,7 @@ python entry.py
 
 Users can specify the following information for each site:
 - name (required)
-- id (required
+- id (required)
 - endpoint
 - keepalive
 - mtu
