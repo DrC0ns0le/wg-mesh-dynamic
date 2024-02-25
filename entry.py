@@ -9,9 +9,9 @@ folder_path = 'output'  # Replace with the path to your folder
 try:
     shutil.rmtree(folder_path)
 except Exception as e:
-    print(f"Error deleting {folder_path}: {e}")
+    pass
 
-# opening peer.json config
+# opening config.json config
 with open('config.json', 'r') as file:
     # load JSON data from file
     try:
@@ -32,7 +32,7 @@ except Exception as e:
     print(f"data.json: {e}\nCreating new data.json...")
     data = {}
 
-
+# check for changes in site ids
 config_ids = set(site["id"] for site in config["sites"])
 data_ids = set(int(key) for key in data.keys())
 
@@ -60,6 +60,7 @@ if config_ids != data_ids:
             value["preshared_key"] = value["preshared_key"][:len(config_ids)-i-1]
             print(value["preshared_key"])
 
+# save keys to data.json
 with open('data.json', 'w') as file:
     json.dump(data, file, indent=2)
 
@@ -126,5 +127,3 @@ for site in config["sites"]:
             with open(output_file, mode="w", encoding="utf-8") as message:
                 message.write(content)
                 print(f"... wrote {output_file}")
-            
-            listen_port +=1
