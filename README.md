@@ -8,7 +8,7 @@ This approach is necessary due to WireGuard's limitation of only routing traffic
 
 This project is intended to be used inconjunction with dynamic routing protocols such as BGP, OSPF or RIP for creation & advertising of redundant routes. Should you not want that, you would need to configure your own static routes by creating your own routes by specifying custom PostUp in the configuration.
 
-This Python script generates WireGuard configuration files based on a template file located in the "template" folder. The main goal is to create WireGuard interfaces for each peer at each site. Users simply need to customize the `peers.json` file to add the necessary information for each site, and the script will handle the rest, generating all the required configuration files.
+This Python script generates WireGuard configuration files based on a template file located in the "template" folder. The main goal is to create WireGuard interfaces for each peer at each site. Users simply need to customize the `config.json` file to add the necessary information for each site, and the script will handle the rest, generating all the required configuration files.
 
 Disclaimer: This is originally a simple script I developed for my personal use, but thought it could be useful to some. Use at your own risk!
 
@@ -52,7 +52,7 @@ git clone https://github.com/DrC0ns0le/wg-mesh-dynamic.git
 2. Run the script:
 
 ```bash
-python generate.py
+python entry.py
 ```
 
 3. The generated configuration files will be stored in the `output` folder. Within the `output` folder, there will be a folder named after each site, containing the configuration files (`wgS.P.conf`) for each peer at that site, where S is the site ID and P is the peer ID.
@@ -61,13 +61,18 @@ python generate.py
 
 ### `config.json`
 
-Users must specify the following information for each site:
-- Name
-- ID
-- Endpoint (optional)
-- Keepalive (optional)
-- Postup (optional)
-- Predown (optional)
+Users can specify the following information for each site:
+- name (required)
+- id (required
+- endpoint
+- keepalive
+- mtu
+- post/pre up/down
+- interface_custom
+- peer_custom
+- local
+- local_v6
+You may refer to config.json.example
 
 ### `data.json`
 
@@ -90,7 +95,7 @@ Suppose we have three sites:
   - Peer 1 (Site ID: 0)
   - Peer 2 (Site ID: 1)
 
-After customizing the `peers.json` file and running the script, the generated configuration files will be organized as follows:
+After customizing the `config.json` file and running the script, the generated configuration files will be organized as follows:
 
 ```
 output/
