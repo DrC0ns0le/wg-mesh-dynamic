@@ -93,7 +93,7 @@ for site in config["sites"]:
                 interface_name=f"wg{site['id']}.{peer['id']}",
                 private_key=data[str(site["id"])]["private_key"],
                 peer_ip=peer.get("local", f"10.201.{peer['id']}.1"),
-                peer_ip_v6=peer.get("local_v6", f"fd09:93c7:f67b:{peer['id']:x}::1"),
+                peer_ip_v6=peer.get("local_v6", f"fdac:c9:{peer['id']:x}::1"),
                 preup=site.get("preup", None),
                 postup=site.get("postup", None),
                 predown=site.get("predown", None),
