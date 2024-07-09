@@ -1,6 +1,9 @@
 # WireGuard Mesh Configuration Generator
 Wireguard Mesh Configuration Generator for Dynamic Routing
 
+**USE AT YOUR OWN RISK**
+This is a tool I built for my own use. It may contain bugs but if it worked for you, well...that's good to hear.
+
 
 This is a simple project aims to simplify the setup of WireGuard mesh site-to-site connections by generating configuration files. Unlike similar projects, it creates separate interfaces for each peer instead of combining them into a single interface. 
 
